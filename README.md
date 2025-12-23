@@ -29,7 +29,7 @@ Payload: JSON
   "username": "<例如 hi@example.com>",
   "password": "<xxxxxxxxxxxxxxxx>",
   "name": "<Example（可选，去掉本行默认使用邮箱地址）>",
-  "to": "<一个或者多个邮箱地址>",
+  "to": "<一个或者多个邮箱地址，多个邮箱地址用英文逗号分隔>",
   "subject": "测试邮件",
   "content": "这是一个测试邮件，text 类型"
 }

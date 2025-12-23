@@ -31,6 +31,6 @@ Payload: JSON
   "name": "<Example（可选，去掉本行默认使用邮箱地址）>",
   "to": "<一个或者多个邮箱地址>",
   "subject": "测试邮件",
-  "content": "这是一个测试邮件，可以是 HTML"
+  "content": "这是一个测试邮件，text 类型"
 }
 ```

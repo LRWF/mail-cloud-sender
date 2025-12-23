@@ -46,7 +46,7 @@ export default {
 					cc: ccList.map(email => ({ email })),
 					bcc: bccList.map(email => ({ email })),
 					subject: subject,
-					html: content,
+					text: content,
 				});
 
 			return Response.json("Sent successfully", { status: 200 });

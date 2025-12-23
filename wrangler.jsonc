@@ -1,0 +1,17 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "mail-cloud-sender",
+	"main": "src/index.js",
+	"compatibility_date": "2025-12-23",
+	"compatibility_flags": [
+		"nodejs_compat_v2"
+	],
+	"observability": {
+		"enabled": false
+	},
+	"workers_dev": false,
+	"preview_urls": false,
+	"placement": {
+		"mode": "smart"
+	}
+}

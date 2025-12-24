@@ -6,23 +6,43 @@ export default {
 		const token = authHeader.replace(/^Bearer\s+/i, "");
 
 		if (!token || token !== env.API_TOKEN) {
-			return new Response("Unauthorized", { status: 401 });
+			return Response.json(
+				{
+					code: 401,
+					msg: "Unauthorized"
+				}
+			);
 		}
 
 		if (request.method !== "POST") {
-			return new Response("Method not allowed", { status: 405 });
+			return Response.json(
+				{
+					code: 405,
+					msg: "Method not allowed"
+				}
+			);
 		}
 
 		let data;
 		try {
 			data = await request.json();
 		} catch {
-			return new Response("Invalid JSON", { status: 400 });
+			return Response.json(
+				{
+					code: 400,
+					msg: "Invalid JSON"
+				}
+			);
 		}
 
 		const { host, port, username, password, name, to, cc, bcc, subject, content } = data;
 		if (!host || !port || !username || !password || !to || !subject || !content) {
-			return new Response("Missing required fields", { status: 400 });
+			return Response.json(
+				{
+					code: 400,
+					msg: "Missing required fields"
+				}
+			);
 		}
 
 		const toList = to.split(",").map(s => s.trim()).filter(Boolean);
@@ -49,9 +69,19 @@ export default {
 					text: content,
 				});
 
-			return Response.json("Sent successfully", { status: 200 });
+			return Response.json(
+				{
+					code: 200,
+					msg: "Sent successfully"
+				}
+			);
 		} catch (err) {
-			return Response.json(err.message.trim(), { status: 500 });
+			return Response.json(
+				{
+					code: 500,
+					msg: err.message.trim()
+				}
+			);
 		}
 	}
 };

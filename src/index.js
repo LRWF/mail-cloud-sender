@@ -8,7 +8,6 @@ export default {
 		if (!token || token !== env.API_TOKEN) {
 			return Response.json(
 				{
-					code: 10001,
 					msg: "Unauthorized"
 				}
 			);
@@ -17,7 +16,6 @@ export default {
 		if (request.method !== "POST") {
 			return Response.json(
 				{
-					code: 10002,
 					msg: "Method not allowed"
 				}
 			);
@@ -29,7 +27,6 @@ export default {
 		} catch {
 			return Response.json(
 				{
-					code: 10003,
 					msg: "Invalid JSON"
 				}
 			);
@@ -39,7 +36,6 @@ export default {
 		if (!host || !port || !username || !password || !to || !subject || !content) {
 			return Response.json(
 				{
-					code: 10004,
 					msg: "Missing required fields"
 				}
 			);
@@ -71,14 +67,12 @@ export default {
 
 			return Response.json(
 				{
-					code: 200,
 					msg: "Sent successfully"
 				}
 			);
 		} catch (err) {
 			return Response.json(
 				{
-					code: 10099,
 					msg: err.message.trim()
 				}
 			);
